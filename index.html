@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery热门城市文字标签云代码 - 站长素材</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/jqcloud.css"/>
+    <script src="js/jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jqcloud-1.0.4.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        .append_div {
+            background: black;
+            color: #FFFFFF;
+            opacity: 0.5;
+            text-align: center;
+            position: absolute;
+            height: 100px;
+            width: 80px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<div class="" style="width: 100%;">
+    <div id="my_favorite_latin_words"
+         style="width: 700px; margin: 0px auto; height: 350px; border: 1px solid #ccc; "></div>
+</div>
+<script type="text/javascript">
+  function on_click(e, ev) {
+    var txt = $(e).html();
+    console.log(txt);
+  }
+  $(function () {
+    var data = [
+      ['总资产收益率', 13],
+      ['净资产收益率', 10],
+      ['毛利率', 9],
+      ['营业收入', 8],
+      ['每股净资产', 7],
+      ['每股收益', 6],
+      ['市盈率', 5],
+      ['市净率', 5],
+      ['新业务价值', 5],
+      ['市销率', 5],
+      ['拨备覆盖率', 4],
+      ['营业成本', 4],
+      ['净息差', 3],
+      ['短期借款', 3],
+      ['流动比率', 3],
+      ['EBITDA', 3],
+      ['存货', 3],
+      ['利润总额', 3],
+      ['净利润率', 2],
+      ['应收账款', 2],
+      ['资本充足率', 2],
+      ['固定资产', 2],
+      ['管理费用', 2],
+      ['成本收入比', 2],
+      ['在建工程', 2],
+      ['营业利润率', 2],
+      ['长期借款', 2],
+      ['营业税金及附加', 1],
+      ['少数股东权益', 1],
+      ['货币资金', 1],
+      ['应付账款', 1],
+      ['投资活动现金流', 1]
+    ];
+
+    var string_ = "";
+    for (var i = 0; i < data.length; i++) {
+      var string_f = data[i][0];
+      var string_n = data[i][1];
+      string_ += "{text: '" + string_f + "', weight: '" + string_n + "',html: {'class': 'span_list',onclick:'on_click(this,event)'}},";
+    }
+
+
+    var string_list = string_;
+    var word_list = eval("[" + string_list + "]");
+    console.log(word_list);
+    $("#my_favorite_latin_words").jQCloud(word_list);
+  });
+</script>
+</body>
+</html>
